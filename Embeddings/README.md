@@ -7,7 +7,7 @@ Embedings solve this problem by encoding each word with a much smaller length ve
 
 Other than the comuputational efficiencies, this process has another use. Each 200 length vector is an unique representation of each word, and have semantical meaning. A fully connected layer can be trained with massive number of words, so that the semantically close words are represented by embedding vectors that are close to each other. Later, the embedding vector can be used as input to any other independent network. 
 
-### Clseness of the words
+### Finding semantically close words to an input word
 
 If two words are semantically close to each other in the context of the text used for training, then the two vectors representing the two words are also close to each other. Assume, two unit vectors in 2-D. V1 and V2. They are close if 
 theta1 - theta2 is small (theta1 is the angle V1 makes with x axis, theta2 is the angle V2 makes with x axis) i.e. cos(theta1-theta2) is cloase to 1. Therefore, closeness of cos(theta1-theta2) to 1 is a measure of two vector's closeness.
