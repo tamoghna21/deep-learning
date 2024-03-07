@@ -1,6 +1,8 @@
 # Embeddings
 
 Embeddings is way of representing words by vectors that contain semantic meaning. 
-A text may contain a massive number of unique words, trying to one-hot code these words is massively inefficient. If there are 50,000 unique words, only one of 50,000 elements is set to 1, all others are 0 for a specific word. The matrix multiplication going into the first hidden layer has almost all of the resulting values as zeros. That's computationally inefficient. 
+A text may contain a massive number of unique words, trying to one-hot code these words is massively inefficient. If there are 50,000 unique words, only one of 50,000 elements is set to 1, all others are 0 for a specific word. The matrix multiplication going into the first hidden layer has almost all of the resulting values as zeros. That's computationally inefficient.
+
 Embedings solve this problem by encoding each word with a much smaller length vector. The length of the embedding vector is called embedding dimension. If there are 50,000 unique words, there will be a fully connected layer with dimension 50,000 (one hot encode dimension) x 200 (embedding dimension). This weight matrix is called the embedding matrix. For each input word, rather than doing matrix multiplication, just the corresponding row from the embedding matrix is chosen, this process is called embedding lookup. This is equivalent to first hidden layer weight multiplication with one hot encoded inputs but computationally efficient.
+
 Other than the comuputational efficiencies, this process has another use. The 200 length vector is a representation of each word, and have semantical meaning. A fully connected layer can be trained with massive number of words, so that the semantically close words are represented by embedding vectors that are close to each other. Later, the embedding vector can be used as input to any other independent network. 
